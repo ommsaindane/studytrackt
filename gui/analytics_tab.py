@@ -9,52 +9,68 @@ from core.analytics import (
     get_study_time_by_month
 )
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+import matplotlib.pyplot as plt
 
 
 class AnalyticsTab(tk.Frame):
     def __init__(self, parent):
         super().__init__(parent)
+        self.configure(bg="#1e1e1e")  # dark background
 
-        # Load logs once
+        # Apply dark style
+        self.set_dark_theme()
+
         self.logs = load_study_sessions()
 
-        # ---- Control Bar ----
-        control_frame = tk.Frame(self)
-        control_frame.pack(pady=5)
+        # --- Container Frame (Center aligned) ---
+        container = tk.Frame(self, bg="#1e1e1e")
+        container.pack(pady=20)
+        container.columnconfigure(0, weight=1)
 
-        # Subject filter
-        tk.Label(control_frame, text="Filter by Subject:").pack(side="left", padx=(5, 2))
+        # --- Title ---
+        tk.Label(
+            container,
+            text="Study Analytics",
+            font=("Helvetica", 16, "bold"),
+            fg="#ffffff",
+            bg="#1e1e1e"
+        ).grid(row=0, column=0, pady=(0, 15))
+
+        # --- Controls (Subject + Time + Refresh) ---
+        control_frame = tk.Frame(container, bg="#1e1e1e")
+        control_frame.grid(row=1, column=0, pady=5)
+
+        tk.Label(control_frame, text="Subject:", font=("Segoe UI", 10), fg="white", bg="#1e1e1e").grid(row=0, column=0, padx=5)
         self.subject_var = tk.StringVar(value="All")
-        self.subject_menu = ttk.Combobox(
-            control_frame,
-            textvariable=self.subject_var,
-            state="readonly",
-            width=12
-        )
-        self.subject_menu.pack(side="left")
+        self.subject_menu = ttk.Combobox(control_frame, textvariable=self.subject_var, state="readonly", width=14)
+        self.subject_menu.grid(row=0, column=1, padx=5)
 
-        # Time range toggle
-        tk.Label(control_frame, text=" | View Trend By:").pack(side="left", padx=(10, 2))
+        tk.Label(control_frame, text="View:", font=("Segoe UI", 10), fg="white", bg="#1e1e1e").grid(row=0, column=2, padx=5)
         self.time_option = tk.StringVar(value="Weekly")
-        self.time_menu = ttk.Combobox(
-            control_frame,
-            textvariable=self.time_option,
-            values=["Weekly", "Monthly"],
-            state="readonly",
-            width=10
-        )
-        self.time_menu.pack(side="left")
+        self.time_menu = ttk.Combobox(control_frame, textvariable=self.time_option, values=["Weekly", "Monthly"], state="readonly", width=10)
+        self.time_menu.grid(row=0, column=3, padx=5)
 
-        # Refresh button
-        refresh_btn = tk.Button(control_frame, text="Refresh Charts", command=self.plot_charts)
-        refresh_btn.pack(side="left", padx=10)
+        refresh_btn = tk.Button(control_frame, text="🔄 Refresh", command=self.plot_charts, bg="#333", fg="white", relief="flat")
+        refresh_btn.grid(row=0, column=4, padx=10)
 
-        # Chart area
-        self.chart_frame = tk.Frame(self)
-        self.chart_frame.pack(fill="both", expand=True, padx=10, pady=10)
+        # --- Chart display area ---
+        self.chart_frame = tk.Frame(self, bg="#1e1e1e")
+        self.chart_frame.pack(fill="both", expand=True, padx=15, pady=10)
 
         self.setup_subject_options()
         self.plot_charts()
+
+    def set_dark_theme(self):
+        style = ttk.Style()
+        style.theme_use("default")
+        style.configure("TCombobox",
+                        fieldbackground="#2d2d2d",
+                        background="#2d2d2d",
+                        foreground="white",
+                        arrowcolor="white")
+        style.map("TCombobox",
+                  fieldbackground=[("readonly", "#2d2d2d")],
+                  foreground=[("readonly", "white")])
 
     def setup_subject_options(self):
         subjects = sorted(set(entry.get("subject", "Unknown") for entry in self.logs))
@@ -62,11 +78,9 @@ class AnalyticsTab(tk.Frame):
         self.subject_var.set("All")
 
     def plot_charts(self):
-        # Clear previous plots
         for widget in self.chart_frame.winfo_children():
             widget.destroy()
 
-        # Reload logs
         self.logs = load_study_sessions()
         self.setup_subject_options()
 
@@ -76,15 +90,13 @@ class AnalyticsTab(tk.Frame):
             if selected_subject == "All" or entry.get("subject") == selected_subject
         ]
 
-        # Show subject bar chart only if "All" selected
         if selected_subject == "All":
             self.draw_bar_chart(
                 title="Total Study Time per Subject",
                 data=get_study_time_by_subject(filtered_logs),
-                color="skyblue"
+                color="#4da6ff"
             )
 
-        # Weekly or monthly time trend
         view = self.time_option.get()
         if view == "Weekly":
             trend_data, cum_data = get_study_time_by_week(filtered_logs)
@@ -99,20 +111,23 @@ class AnalyticsTab(tk.Frame):
 
     def draw_bar_chart(self, title, data, color):
         if not data:
-            tk.Label(self.chart_frame, text=f"No data for '{title}'").pack(pady=5)
+            tk.Label(self.chart_frame, text=f"No data for '{title}'", fg="white", bg="#1e1e1e").pack(pady=5)
             return
 
-        import matplotlib.pyplot as plt
         fig, ax = plt.subplots(figsize=(6, 3))
+        fig.patch.set_facecolor("#1e1e1e")
+        ax.set_facecolor("#2d2d2d")
+
         keys = list(data.keys())
         values = list(data.values())
 
         ax.bar(keys, values, color=color)
-        ax.set_title(title)
-        ax.set_ylabel("Minutes")
+        ax.set_title(title, color="white")
+        ax.set_ylabel("Minutes", color="white")
         ax.set_xticks(range(len(keys)))
-        ax.set_xticklabels(keys, rotation=45, ha="right")
-        ax.grid(True, axis="y")
+        ax.set_xticklabels(keys, rotation=45, ha="right", color="white")
+        ax.tick_params(colors='white')
+        ax.grid(True, axis="y", color="#444")
 
         canvas = FigureCanvasTkAgg(fig, master=self.chart_frame)
         canvas.draw()
@@ -120,28 +135,28 @@ class AnalyticsTab(tk.Frame):
 
     def draw_dual_line_chart(self, title, data, cumulative):
         if not data:
-            tk.Label(self.chart_frame, text=f"No data for '{title}'").pack(pady=5)
+            tk.Label(self.chart_frame, text=f"No data for '{title}'", fg="white", bg="#1e1e1e").pack(pady=5)
             return
 
-        import matplotlib.pyplot as plt
         fig, ax = plt.subplots(figsize=(6, 3))
+        fig.patch.set_facecolor("#1e1e1e")
+        ax.set_facecolor("#2d2d2d")
 
         keys = list(data.keys())
         values = list(data.values())
         cum_values = [cumulative[k] for k in keys]
 
-        # Plot main line
-        ax.plot(keys, values, marker='o', linestyle='-', color="tomato", label="This Period")
-        # Plot cumulative line
-        ax.plot(keys, cum_values, marker='o', linestyle='--', color="green", label="Cumulative Total")
+        ax.plot(keys, values, marker='o', linestyle='-', color="#ff6666", label="This Period")
+        ax.plot(keys, cum_values, marker='o', linestyle='--', color="#00cc99", label="Cumulative Total")
 
-        ax.set_title(title)
-        ax.set_ylabel("Minutes")
-        ax.set_xlabel("Time")
+        ax.set_title(title, color="white")
+        ax.set_ylabel("Minutes", color="white")
+        ax.set_xlabel("Time", color="white")
         ax.set_xticks(range(len(keys)))
-        ax.set_xticklabels(keys, rotation=45, ha="right")
-        ax.grid(True)
-        ax.legend()
+        ax.set_xticklabels(keys, rotation=45, ha="right", color="white")
+        ax.tick_params(colors='white')
+        ax.grid(True, color="#444")
+        ax.legend(facecolor="#2d2d2d", edgecolor="white", labelcolor="white")
 
         canvas = FigureCanvasTkAgg(fig, master=self.chart_frame)
         canvas.draw()
