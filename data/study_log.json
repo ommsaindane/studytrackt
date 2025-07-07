@@ -12,5 +12,292 @@
     "duration": 68,
     "notes": "How to use json web tokens for user authentication on the server side.",
     "timestamp": "2025-07-06T11:53:20.352735"
+  },
+  {
+    "subject": "MongoDB",
+    "topic": "Storing user data",
+    "duration": 95,
+    "notes": "MongoDB usage and adding it to the api-server.",
+    "timestamp": "2025-07-07T15:24:00.166948"
+  },
+  {
+    "subject": "CSS",
+    "topic": "Responsive Design",
+    "duration": 64,
+    "notes": "Practiced Responsive Design and built a small project.",
+    "timestamp": "2025-07-07T18:22:00.000000"
+  },
+  {
+    "subject": "MongoDB",
+    "topic": "Aggregation",
+    "duration": 108,
+    "notes": "Implemented Aggregation in a hands-on session.",
+    "timestamp": "2025-07-23T13:56:00.000000"
+  },
+  {
+    "subject": "Authentication",
+    "topic": "OAuth",
+    "duration": 47,
+    "notes": "Documented learnings from OAuth tutorials.",
+    "timestamp": "2025-07-28T14:02:00.000000"
+  },
+  {
+    "subject": "ML",
+    "topic": "Linear Regression",
+    "duration": 77,
+    "notes": "Implemented Linear Regression in a hands-on session.",
+    "timestamp": "2025-07-26T15:39:00.000000"
+  },
+  {
+    "subject": "Data Structures",
+    "topic": "HashMaps",
+    "duration": 71,
+    "notes": "Practiced HashMaps and built a small project.",
+    "timestamp": "2025-07-18T16:01:00.000000"
+  },
+  {
+    "subject": "ML",
+    "topic": "Model Evaluation",
+    "duration": 107,
+    "notes": "Practiced Model Evaluation and built a small project.",
+    "timestamp": "2025-07-16T17:05:00.000000"
+  },
+  {
+    "subject": "Git",
+    "topic": "GitHub Actions",
+    "duration": 60,
+    "notes": "Practiced GitHub Actions and built a small project.",
+    "timestamp": "2025-07-06T15:21:00.000000"
+  },
+  {
+    "subject": "Git",
+    "topic": "Branching",
+    "duration": 93,
+    "notes": "Documented learnings from Branching tutorials.",
+    "timestamp": "2025-07-10T10:42:00.000000"
+  },
+  {
+    "subject": "Git",
+    "topic": "Merging",
+    "duration": 91,
+    "notes": "Implemented Merging in a hands-on session.",
+    "timestamp": "2025-07-30T18:15:00.000000"
+  },
+  {
+    "subject": "ML",
+    "topic": "Model Evaluation",
+    "duration": 42,
+    "notes": "Revised Model Evaluation concepts and solved examples.",
+    "timestamp": "2025-07-21T16:32:00.000000"
+  },
+  {
+    "subject": "Python",
+    "topic": "OOP",
+    "duration": 41,
+    "notes": "Implemented OOP in a hands-on session.",
+    "timestamp": "2025-07-03T17:58:00.000000"
+  },
+  {
+    "subject": "Data Structures",
+    "topic": "Stacks",
+    "duration": 45,
+    "notes": "Implemented Stacks in a hands-on session.",
+    "timestamp": "2025-07-09T15:03:00.000000"
+  },
+  {
+    "subject": "CSS",
+    "topic": "Flexbox",
+    "duration": 62,
+    "notes": "Practiced Flexbox and built a small project.",
+    "timestamp": "2025-07-02T14:57:00.000000"
+  },
+  {
+    "subject": "Data Structures",
+    "topic": "Queues",
+    "duration": 47,
+    "notes": "Revised Queues concepts and solved examples.",
+    "timestamp": "2025-07-21T15:29:00.000000"
+  },
+  {
+    "subject": "Python",
+    "topic": "OOP",
+    "duration": 100,
+    "notes": "Worked on a bug related to OOP.",
+    "timestamp": "2025-07-05T14:28:00.000000"
+  },
+  {
+    "subject": "Python",
+    "topic": "OOP",
+    "duration": 71,
+    "notes": "Revised OOP concepts and solved examples.",
+    "timestamp": "2025-07-15T17:12:00.000000"
+  },
+  {
+    "subject": "Data Structures",
+    "topic": "HashMaps",
+    "duration": 79,
+    "notes": "Worked on a bug related to HashMaps.",
+    "timestamp": "2025-07-16T13:36:00.000000"
+  },
+  {
+    "subject": "Git",
+    "topic": "Merging",
+    "duration": 99,
+    "notes": "Worked on a bug related to Merging.",
+    "timestamp": "2025-07-20T10:41:00.000000"
+  },
+  {
+    "subject": "MongoDB",
+    "topic": "Storing user data",
+    "duration": 43,
+    "notes": "Implemented Storing user data in a hands-on session.",
+    "timestamp": "2025-07-02T16:21:00.000000"
+  },
+  {
+    "subject": "Authentication",
+    "topic": "Session Management",
+    "duration": 63,
+    "notes": "Practiced Session Management and built a small project.",
+    "timestamp": "2025-07-21T14:57:00.000000"
+  },
+  {
+    "subject": "Python",
+    "topic": "Decorators",
+    "duration": 91,
+    "notes": "Worked on a bug related to Decorators.",
+    "timestamp": "2025-07-08T17:04:00.000000"
+  },
+  {
+    "subject": "Data Structures",
+    "topic": "Trees",
+    "duration": 111,
+    "notes": "Documented learnings from Trees tutorials.",
+    "timestamp": "2025-07-12T10:46:00.000000"
+  },
+  {
+    "subject": "ML",
+    "topic": "Feature Engineering",
+    "duration": 94,
+    "notes": "Worked on a bug related to Feature Engineering.",
+    "timestamp": "2025-07-09T10:22:00.000000"
+  },
+  {
+    "subject": "Git",
+    "topic": "Rebasing",
+    "duration": 36,
+    "notes": "Documented learnings from Rebasing tutorials.",
+    "timestamp": "2025-07-24T17:28:00.000000"
+  },
+  {
+    "subject": "Data Structures",
+    "topic": "Linked Lists",
+    "duration": 104,
+    "notes": "Implemented Linked Lists in a hands-on session.",
+    "timestamp": "2025-07-22T15:12:00.000000"
+  },
+  {
+    "subject": "Git",
+    "topic": "Merging",
+    "duration": 89,
+    "notes": "Implemented Merging in a hands-on session.",
+    "timestamp": "2025-07-23T18:58:00.000000"
+  },
+  {
+    "subject": "Python",
+    "topic": "Tkinter",
+    "duration": 54,
+    "notes": "Implemented Tkinter in a hands-on session.",
+    "timestamp": "2025-07-29T10:49:00.000000"
+  },
+  {
+    "subject": "Python",
+    "topic": "Tkinter",
+    "duration": 72,
+    "notes": "Implemented Tkinter in a hands-on session.",
+    "timestamp": "2025-07-20T14:28:00.000000"
+  },
+  {
+    "subject": "Data Structures",
+    "topic": "Queues",
+    "duration": 38,
+    "notes": "Revised Queues concepts and solved examples.",
+    "timestamp": "2025-07-04T16:02:00.000000"
+  },
+  {
+    "subject": "Data Structures",
+    "topic": "HashMaps",
+    "duration": 93,
+    "notes": "Implemented HashMaps in a hands-on session.",
+    "timestamp": "2025-07-25T12:46:00.000000"
+  },
+  {
+    "subject": "Git",
+    "topic": "Branching",
+    "duration": 115,
+    "notes": "Documented learnings from Branching tutorials.",
+    "timestamp": "2025-07-05T13:31:00.000000"
+  },
+  {
+    "subject": "Git",
+    "topic": "GitHub Actions",
+    "duration": 66,
+    "notes": "Revised GitHub Actions concepts and solved examples.",
+    "timestamp": "2025-07-02T10:01:00.000000"
+  },
+  {
+    "subject": "ML",
+    "topic": "Model Evaluation",
+    "duration": 34,
+    "notes": "Implemented Model Evaluation in a hands-on session.",
+    "timestamp": "2025-07-28T11:13:00.000000"
+  },
+  {
+    "subject": "Git",
+    "topic": "Merging",
+    "duration": 57,
+    "notes": "Revised Merging concepts and solved examples.",
+    "timestamp": "2025-07-27T18:10:00.000000"
+  },
+  {
+    "subject": "Data Structures",
+    "topic": "Queues",
+    "duration": 42,
+    "notes": "Practiced Queues and built a small project.",
+    "timestamp": "2025-07-29T12:31:00.000000"
+  },
+  {
+    "subject": "React",
+    "topic": "Navbar",
+    "duration": 105,
+    "notes": "Documented learnings from Navbar tutorials.",
+    "timestamp": "2025-07-20T14:35:00.000000"
+  },
+  {
+    "subject": "ML",
+    "topic": "Linear Regression",
+    "duration": 92,
+    "notes": "Revised Linear Regression concepts and solved examples.",
+    "timestamp": "2025-07-11T11:47:00.000000"
+  },
+  {
+    "subject": "ML",
+    "topic": "Feature Engineering",
+    "duration": 120,
+    "notes": "Practiced Feature Engineering and built a small project.",
+    "timestamp": "2025-07-26T18:22:00.000000"
+  },
+  {
+    "subject": "Git",
+    "topic": "GitHub Actions",
+    "duration": 80,
+    "notes": "Implemented GitHub Actions in a hands-on session.",
+    "timestamp": "2025-07-02T11:05:00.000000"
+  },
+  {
+    "subject": "Git",
+    "topic": "GitHub Actions",
+    "duration": 93,
+    "notes": "Worked on a bug related to GitHub Actions.",
+    "timestamp": "2025-07-06T13:39:00.000000"
   }
 ]

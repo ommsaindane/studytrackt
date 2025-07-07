@@ -4,6 +4,7 @@ import tkinter as tk
 from tkinter import scrolledtext
 from core.tracker import load_study_sessions
 from core.ai import generate_study_summary, answer_custom_question
+from core.recommender import recommend_subjects
 
 
 class AssistantTab(tk.Frame):
@@ -47,6 +48,12 @@ class AssistantTab(tk.Frame):
         )
         ask_btn.pack(pady=(0, 10))
 
+        recommend_btn = tk.Button(
+            self, text="📚 What Should I Study Next?", command=self.show_recommendations,
+            bg="#555", fg="white", relief="flat"
+        )
+        recommend_btn.pack(pady=(0, 10))
+
     def generate_summary(self):
         logs = load_study_sessions()
         summary = generate_study_summary(logs[-7:])
@@ -61,4 +68,14 @@ class AssistantTab(tk.Frame):
         logs = load_study_sessions()
         response = answer_custom_question(logs, question)
         self.output_box.insert(tk.END, f"\n\n🧠 Q: {question}\n➡️ {response}\n")
+        self.output_box.see(tk.END)
+
+    def show_recommendations(self):
+        logs = load_study_sessions()
+        subjects = recommend_subjects(logs)
+
+        self.output_box.insert(tk.END, "\n\n🎯 Recommended Subjects:\n")
+        for sub in subjects:
+            self.output_box.insert(tk.END, f"• {sub}\n")
+
         self.output_box.see(tk.END)
